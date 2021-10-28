@@ -145,15 +145,8 @@ class editcu(UpdateView):
     form_class = cuestform
     success_url = reverse_lazy('adminCuestionario')
 
-class MeetViewadm(ListView):
-    template_name = 'reunionesadmin.html'
-    model = Reuniones
-
-    def get_queryset(self):
-        return Reuniones.objects.all()
-
 class editreu(UpdateView):
     model = Reuniones
     template_name = "reuedit.html"
     form_class = reuform
-    success_url = reverse_lazy('reuadm')
+    success_url = reverse_lazy('reuniones')
