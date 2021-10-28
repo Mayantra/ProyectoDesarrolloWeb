@@ -1,0 +1,47 @@
+{% extends 'index.html' %}
+
+{% block menu %}
+<li>
+    <div class="BtMenu"><a href="{% url 'home'%}" style="text-decoration:none">HOME</a></div>
+</li>
+<li>
+    <div class="BtMenu"><a href="{% url 'documentos'%}" style="text-decoration:none">Documentos</a></div>
+</li>
+<li>
+    <div class="BtMenu"><a href="{% url 'formularios'%}" style="text-decoration:none">Formularios</a></div>
+</li>
+<li>
+    <div class="BtMenu"><a href="{% url 'reuniones'%}" style="text-decoration:none">Reuniones</a></div>
+</li>
+<li>
+    <div class="BtMenu"><a href="{% url 'index'%}" style="text-decoration:none">LOGOUT</a></div>
+</li>
+{% endblock %}
+
+{% block titulo2%}
+Bienvenido al menú de edición del Administrador
+{% endblock %}
+
+{% block parrafo%}
+<div class="div-3" >
+    <h1>Listado de Accesorios</h1>
+<table border="1" class="table table-bordered">
+    <tr>
+        <td style="color:#000000">Nombre</td>
+        <td style="color:#000000">Apellido</td>
+        <td style="color:#000000">Contraseña</td>
+        <td style="color:#000000">Puesto</td>
+    </tr>
+{% for adm in object_list %}
+<tr>
+<td style="color:#000000">{{adm.nombre}} </td>
+<td style="color:#000000">{{adm.Apellido}}</td>
+<td style="color:#000000">{{adm.Contraseña}}</td>
+<td style="color:#000000">{{adm.Puesto}}</td>
+<td style="color:#000000"><a href="">Editar</a></td>
+
+</tr>
+{% endfor %}
+</table>
+</div>
+{% endblock %}

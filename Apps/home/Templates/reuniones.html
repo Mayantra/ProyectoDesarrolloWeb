@@ -1,0 +1,149 @@
+{% extends 'index.html' %}
+
+{% block titulo%} <title>Reuniones</title>{% endblock %}
+
+
+{% block menu %}
+<title>Menu Desplegable</title>
+		<style type="text/css">
+			
+			* {
+				margin:0px;
+				padding:0px;
+			}
+			
+			#header {
+				margin:auto;
+				width:1200px;
+				font-family:Arial, Helvetica, sans-serif;
+                
+			}
+			
+			ul, ol {
+				list-style:none;
+			}
+			
+			.nav > li {
+				float:left;
+			}
+			
+			.nav li a {
+				background-color:rgb(32, 32, 32);
+				color:#fff;
+				text-decoration:none;
+				padding: 8px 12px;
+				display:block;
+			}
+			
+			.nav li a:hover {
+				background-color:#434343;
+			}
+			
+			.nav li ul {
+				display:none;
+				position:absolute;
+				min-width:140px;
+			}
+			
+			.nav li:hover > ul {
+				display:block;
+			}
+			
+			.nav li ul li {
+				position:relative;
+			}
+			
+			.nav li ul li ul {
+				right:-140px;
+				top:0px;
+			}
+			
+		</style>
+	
+		<div id="header">
+			<ul class="nav ">
+				<li class = "BtMenu"><a href="{% url 'home'%}">HOME</a></li>
+				<li class = "BtMenu"><a href="{% url 'documentos'%}">DOCUMENTOS</a>
+					<ul><br>
+						<li><a href="{% url 'ListarEje' %}">Documentos ejecutivos</a></li>
+						<li><a href="{% url 'ListarEditables' %}">Actas (circulares, momerandums</a></li>
+						<li><a href="{% url 'ListarContable' %}">Documentos contables</a></li>
+						<li><a href="{% url 'ListarCuestionario' %}">Cuestionarios Psicologicos</a>
+							<!-- <ul>
+								<li><a href="">Submenu1</a></li>
+								<li><a href="">Submenu2</a></li>
+								<li><a href="">Submenu3</a></li>
+								<li><a href="">Submenu4</a></li>
+							</ul> -->
+						</li>
+					</ul>
+				</li>
+				<li class = "BtMenu"><a href="{% url 'formularios'%}">FORMULARIOS</a>
+					<!-- <ul>
+						<li><a href="">Submenu1</a></li>
+						<li><a href="">Submenu2</a></li>
+						<li><a href="">Submenu3</a></li>
+						<li><a href="">Submenu4</a></li>
+					</ul> -->
+				</li>
+				<li class = "BtMenu"><a href="{% url 'reuniones'%}">REUNIONES</a></li>
+                <li class = "BtMenu"><a href="{% url 'index'%}">LOGOUT</a></li>
+			</ul>
+		</div>
+
+<!-- <li>
+    <div class="BtMenu"><a href="{% url 'home'%}" style="text-decoration:none">HOME</a></div>
+</li>
+<li>
+    <div class="BtMenu"><a href="{% url 'documentos'%}" style="text-decoration:none">Documentos</a></div>
+</li>
+<li>
+    <div class="BtMenu"><a href="{% url 'formularios'%}" style="text-decoration:none">Formularios</a></div>
+</li>
+<li>
+    <div class="BtMenu"><a href="{% url 'reuniones'%}" style="text-decoration:none">Reuniones</a></div>
+</li>
+<li>
+    <div class="BtMenu"><a href="{% url 'index'%}" style="text-decoration:none">LOGOUT</a></div>
+</li>
+ -->
+
+
+{% endblock %}
+	
+{% block contenido%}
+
+<center><h1>Reuniones</h1></center> 
+<table border="" class="table table-dark table-striped">
+	<thead>
+	<tr>
+		
+		<th scope = 'col'>Motivo</th>
+		<th scope = 'col'>tipo</th>
+		<th scope = 'col'>Enlace</th>
+		<th scope = 'col'>Hora de registro</th>
+        <th scope = 'col'>Hora de reunión</th>
+		<!-- <th scope = 'col'>Editar</th> -->
+	  
+	   
+	</tr>
+	</thead>
+	
+	{% for est in object_list %} <!-- est nombre de la variable -->
+	<tbody>
+	<tr>
+	   
+		<td>{{ est.motivo }}</td>
+		<td>{{ est.tipo }}</td>
+		<td><a href="{{ est.link }}"class="btn btn-dark btn-sm">Ingresar</a></td>
+		<td>{{ est.horaRegisto }}</td>
+        <td>{{ est.horaReunion }}</td>
+	
+	
+	</tr>
+	</tbody>
+	{% endfor %}
+
+</table>
+
+{% endblock %}

@@ -1,0 +1,175 @@
+{% extends 'index.html' %}
+{% block titulo%} <title>Formularios</title>{% endblock %}
+
+{% block menu %}
+<title>Menu Desplegable</title>
+		<style type="text/css">
+			
+			* {
+				margin:0px;
+				padding:0px;
+			}
+			
+			#header {
+				margin:auto;
+				width:1200px;
+				font-family:Arial, Helvetica, sans-serif;
+                
+			}
+			
+			ul, ol {
+				list-style:none;
+			}
+			
+			.nav > li {
+				float:left;
+			}
+			
+			.nav li a {
+				background-color:rgb(32, 32, 32);
+				color:#fff;
+				text-decoration:none;
+				padding: 8px 12px;
+				display:block;
+			}
+			
+			.nav li a:hover {
+				background-color:#434343;
+			}
+			
+			.nav li ul {
+				display:none;
+				position:absolute;
+				min-width:140px;
+			}
+			
+			.nav li:hover > ul {
+				display:block;
+			}
+			
+			.nav li ul li {
+				position:relative;
+			}
+			
+			.nav li ul li ul {
+				right:-140px;
+				top:0px;
+			}
+			
+		</style>
+	
+		<div id="header">
+			<ul class="nav ">
+				<li class = "BtMenu"><a href="{% url 'home'%}">HOME</a></li>
+				<li class = "BtMenu"><a href="{% url 'documentos'%}">DOCUMENTOS</a>
+					<ul>
+						<li><a href="{% url 'ListarEje' %}">Documentos ejecutivos</a></li>
+						<li><a href="{% url 'ListarEditables' %}">Actas (circulares, momerandums</a></li>
+						<li><a href="{% url 'ListarContable' %}">Documentos contables</a></li>
+						<li><a href="{% url 'ListarCuestionario' %}">Cuestionarios Psicologicos</a>
+							<!-- <ul>
+								<li><a href="">Submenu1</a></li>
+								<li><a href="">Submenu2</a></li>
+								<li><a href="">Submenu3</a></li>
+								<li><a href="">Submenu4</a></li>
+							</ul> -->
+						</li>
+					</ul>
+				</li>
+				<li class = "BtMenu"><a href="{% url 'formularios'%}">FORMULARIOS</a>
+					<!-- <ul>
+						<li><a href="">Submenu1</a></li>
+						<li><a href="">Submenu2</a></li>
+						<li><a href="">Submenu3</a></li>
+						<li><a href="">Submenu4</a></li>
+					</ul> -->
+				</li>
+				<li class = "BtMenu"><a href="{% url 'reuniones'%}">REUNIONES</a></li>
+                <li class = "BtMenu"><a href="{% url 'index'%}">LOGOUT</a></li>
+			</ul>
+		</div>
+{% endblock %}
+{% block contenido%}
+<section class="from-register">
+    <form method="POST">
+        {% csrf_token %}
+        {% if error%}
+        <h2>{{error}}</h2>
+        {% else %}
+        <form action="#" method="POST" enctype="multipart/form-data">
+
+            <h4 class="titulos">Formulario Registro </h4>
+            <p class="controls">{{form.IDusuario.label}}</p>
+            <div>
+                <div class=" form-control-lg">{{form.IDusuario}}</div>
+            </div>
+            <p class="controls">{{form.edad.label}} </p>
+            <div>
+                <div class=" form-control-lg">{{form.edad}}</div>
+            </div>
+            <p class="controls">{{form.sexo.label}} </p>
+            <div>
+                <div class="form-control-lg">{{form.sexo}}</div>
+            </div>
+
+            <p class="controls">{{form.IDDepartamentos.label}} </p>
+            <div>
+                <div class="form-control-lg">{{form.IDDepartamentos}}</div>
+            </div>
+            <p class="controls">{{form.dMunicipio.label}} </p>
+            <div>
+                <div class="form-control-lg">{{form.dMunicipio}}</div>
+            </div>
+            <p class="controls">{{form.Direccion.label}} </p>
+            <div>
+                <div class="form-control-lg">{{form.Direccion}}</div>
+            </div>
+            <p class="controls">{{form.profe.label}} </p>
+            <div>
+                <div class="form-control-lg">{{form.profe}}</div>
+            </div>
+            
+            <p class="controls">{{form.fotografiaPersonal.label}}</p>
+            <div>
+                <div class="form-control-lg">{{form.fotografiaPersonal}}</div>
+            </div>
+            <p class="controls">{{form.cartaRecomendacion.label}} </p>
+            <div>
+                <div class="form-control-lg">{{form.cartaRecomendacion}}</div>
+            </div>
+            <p class="controls">{{form.cartaLaboral.label}} </p>
+            <div>
+                <div class="form-control-lg">{{form.cartaLaboral}}</div>
+            </div>
+            <p class="controls">{{form.tituloyDiplomas.label}} </p>
+            <div>
+                <div class="form-control-lg">{{form.tituloyDiplomas}}</div>
+            </div>
+            <p class="controls">{{form.CUI.label}} </p>
+            <div>
+                <div class="form-control-lg">{{form.CUI}}</div>
+            </div>
+            <p class="controls">{{form.fotografiaDPI.label}} </p>
+            <div>
+                <div class="form-control-lg">{{form.fotografiaDPI}}</div>
+            </div>
+            <p class="controls">{{form.fotografiaRTU.label}} </p>
+            <div>
+                <div class="form-control-lg">{{form.fotografiaRTU}}</div>
+            </div>
+            <p class="controls">{{form.antecedentespenales.label}} </p>
+            <div>
+                <div class="form-control-lg">{{form.antecedentespenales}}</div>
+            </div>
+            <p class="controls">{{form.antecedentespoliciacos.label}} </p>
+            <div>
+                <div class="form-control-lg">{{form.antecedentespoliciacos}}</div>
+            </div>
+
+            <button type="submit" >Guardar</button>
+        </form>
+        {% endif %}
+    </form>
+</section>
+
+{% endblock %}

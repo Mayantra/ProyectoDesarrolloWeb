@@ -1,0 +1,125 @@
+{% extends 'index.html' %}
+
+{% block menu %}
+<title>Menu Desplegable</title>
+		<style type="text/css">
+			
+			* {
+				margin:0px;
+				padding:0px;
+			}
+			
+			#header {
+				margin:auto;
+				width:1200px;
+				font-family:Arial, Helvetica, sans-serif;
+                
+			}
+			
+			ul, ol {
+				list-style:none;
+			}
+			
+			.nav > li {
+				float:left;
+			}
+			
+			.nav li a {
+				background-color:rgb(32, 32, 32);
+				color:#fff;
+				text-decoration:none;
+				padding: 8px 12px;
+				display:block;
+			}
+			
+			.nav li a:hover {
+				background-color:#434343;
+			}
+			
+			.nav li ul {
+				display:none;
+				position:absolute;
+				min-width:140px;
+			}
+			
+			.nav li:hover > ul {
+				display:block;
+			}
+			
+			.nav li ul li {
+				position:relative;
+			}
+			
+			.nav li ul li ul {
+				right:-140px;
+				top:0px;
+			}
+			
+		</style>
+	
+		<div id="header">
+			<ul class="nav ">
+				<li class = "BtMenu"><a href="{% url 'home'%}">HOME</a></li>
+				<li class = "BtMenu"><a href="{% url 'documentos'%}">DOCUMENTOS</a>
+					<ul><br>
+						<li><a href="{% url 'ListarEje' %}">Documentos ejecutivos</a></li>
+						<li><a href="{% url 'ListarEditables' %}">Actas (circulares, momerandums</a></li>
+						<li><a href="{% url 'ListarContable' %}">Documentos contables</a></li>
+						<li><a href="{% url 'ListarCuestionario' %}">Cuestionarios Psicologicos</a>
+							<!-- <ul>
+								<li><a href="">Submenu1</a></li>
+								<li><a href="">Submenu2</a></li>
+								<li><a href="">Submenu3</a></li>
+								<li><a href="">Submenu4</a></li>
+							</ul> -->
+						</li>
+					</ul>
+				</li>
+				<li class = "BtMenu"><a href="{% url 'formularios'%}">FORMULARIOS</a>
+					<!-- <ul>
+						<li><a href="">Submenu1</a></li>
+						<li><a href="">Submenu2</a></li>
+						<li><a href="">Submenu3</a></li>
+						<li><a href="">Submenu4</a></li>
+					</ul> -->
+				</li>
+				<li class = "BtMenu"><a href="{% url 'reuniones'%}">REUNIONES</a></li>
+                <li class = "BtMenu"><a href="{% url 'index'%}">LOGOUT</a></li>
+			</ul>
+		</div>
+
+<!-- <li>
+    <div class="BtMenu"><a href="{% url 'home'%}" style="text-decoration:none">HOME</a></div>
+</li>
+<li>
+    <div class="BtMenu"><a href="{% url 'documentos'%}" style="text-decoration:none">Documentos</a></div>
+</li>
+<li>
+    <div class="BtMenu"><a href="{% url 'formularios'%}" style="text-decoration:none">Formularios</a></div>
+</li>
+<li>
+    <div class="BtMenu"><a href="{% url 'reuniones'%}" style="text-decoration:none">Reuniones</a></div>
+</li>
+<li>
+    <div class="BtMenu"><a href="{% url 'index'%}" style="text-decoration:none">LOGOUT</a></div>
+</li>
+ -->
+
+
+{% endblock %}
+
+{% block titulo2%}
+BIENVENIDOS
+{% endblock %}
+
+{% block parrafo%}
+A ustedes jovenes emprendedores que han tomado la desicion de confiar en nosotros, 
+reciban un coordial saludo por parte de la Municipalidad de Tacaná.
+<br> <br>
+A continuacion encontraran una serie de apartado de formularios donde podran inscribirse, 
+tomando en cuenta que en el apartado Documentos, tendrá ejemplares donde podra guiarse.
+<br>
+También encontrará un apartado de REUNIONES donde podrá agendar reuniones con los demas integrantes, las reunioness
+podrán ser tanto por videollamadas como por llamadas de audio y texto, teniendo la posibilidad de poder compartir archivos
+con todos los miembors o unicamente con los miembros que usted desee.
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'index.html' %}
+
+{% block titulo%} <title>Documentos Contables</title>{% endblock %}
+
+{% block contenido%}
+<style>
+    .div-3 {
+    background-color: #FBD603;
+}
+</style>
+
+<div class="ParrafoRegistroU" >
+    <h1>Listado de Documentos Contables</h1>
+<table border="1" class="table table-bordered">
+    <tr>
+        <td style="color:#000000">Contenido</td>
+        <td style="color:#000000">Tipo</td>
+        <td style="color:#000000">Descripcion</td>
+        <td style="color:#000000">Guia</td>
+    </tr>
+{% for est in object_list %}
+<tr>
+<td style="color:#000000">{{est.Contenido}} </td>
+<td style="color:#000000">{{est.Tipo}}</td>
+<td style="color:#000000">{{est.Descripcion}}</td>
+<td style="color:#000000">{{est.Guia}}</td>
+<td style="color:#000000"><a href="{% url 'dceditar' est.id %}">Editar</a></td>
+</tr>
+{% endfor %}
+</table>
+</div>
+{% endblock %}

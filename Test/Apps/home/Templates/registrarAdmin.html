@@ -1,0 +1,51 @@
+{% extends 'index.html' %}
+{% block titulo%} <title>Registrar Administrador</title>{% endblock %}
+{% block menu %}
+
+{% endblock %}
+
+{% block contenido%}
+<div class=ContGlobal>
+
+    <div class="ParrafoRegistroU">
+
+        <div class="ParrafoContRegistrarU">
+
+            <form method="POST">
+                {% csrf_token %}
+                {% if error%}
+                <h2>{{error}}</h2>
+                {% else %}
+                <form action="#" method="POST" enctype="multipart/form-data">
+            <h1 class="titulos">Registro de Ususario </h1>
+
+            <p >Nombres: </p>
+            <div >
+                <div class=" form-control-lg">{{form.nombre}}</div>
+            </div>
+            <p >Apellidos: </p>
+            <div >
+                <div class="form-control-lg">{{form.apellido}}</div>
+            </div>
+
+            <p >Puesto:</p>
+            <div >
+                <div class="form-control-lg">{{form.puesto}}</div>
+            </div>
+            <p >Contraseña: </p>
+            <div >
+                <div class="form-control-lg">{{form.contraseña}}</div>
+            </div>
+            
+            <button  type="submit" name="registrar">Registrar</button>
+            </form>
+            {% endif %}
+            </form>
+
+            <div >
+        </div>
+    </div>
+
+
+</div>
+{% endblock %}
