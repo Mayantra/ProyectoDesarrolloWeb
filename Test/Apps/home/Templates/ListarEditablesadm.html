@@ -63,13 +63,13 @@
 	
 		<div id="header">
 			<ul class="nav ">
-				<li class = "BtMenu"><a href="{% url 'home'%}">HOME</a></li>
-				<li class = "BtMenu"><a href="{% url 'documentos'%}">DOCUMENTOS</a>
+				<li class = "BtMenu"><a href="{% url 'home'%}">Vista Usuarios</a></li>
+				<li class = "BtMenu"><a href="{% url 'documentosadm'%}">DOCUMENTOS</a>
 					<ul>
-						<li><a href="{% url 'ListarEje' %}">Documentos ejecutivos</a></li>
-						<li><a href="{% url 'ListarEditables' %}">Actas (circulares, momerandums</a></li>
-						<li><a href="{% url 'ListarContable' %}">Documentos contables</a></li>
-						<li><a href="{% url 'ListarCuestionario' %}">Cuestionarios Psicologicos</a>
+						<li><a href="{% url 'adminEje' %}">Documentos ejecutivos</a></li>
+						<li><a href="{% url 'adminEditables' %}">Actas (circulares, momerandums</a></li>
+						<li><a href="{% url 'adminContable' %}">Documentos contables</a></li>
+						<li><a href="{% url 'adminCuestionario' %}">Cuestionarios Psicologicos</a>
 							<!-- <ul>
 								<li><a href="">Submenu1</a></li>
 								<li><a href="">Submenu2</a></li>
@@ -79,7 +79,7 @@
 						</li>
 					</ul>
 				</li>
-				<li class = "BtMenu"><a href="{% url 'formularios'%}">FORMULARIOS</a>
+				
 					<!-- <ul>
 						<li><a href="">Submenu1</a></li>
 						<li><a href="">Submenu2</a></li>
@@ -87,7 +87,7 @@
 						<li><a href="">Submenu4</a></li>
 					</ul> -->
 				</li>
-				<li class = "BtMenu"><a href="{% url 'reuniones'%}">REUNIONES</a></li>
+				<li class = "BtMenu"><a href="{% url 'reuadm'%}">REUNIONES</a></li>
                 <li class = "BtMenu"><a href="{% url 'index'%}">LOGOUT</a></li>
 			</ul>
 		</div>
@@ -104,7 +104,7 @@
 		<th scope = 'col'>Descripcion</th>
 		<th scope = 'col'>Contenido</th>
 		<th scope = 'col'>Editar</th>
-	
+		<td><a href="{% url 'credit'  %}"class="btn btn-dark btn-sm">Agregar Documento</a></td>
 	  
 	   
 	</tr>

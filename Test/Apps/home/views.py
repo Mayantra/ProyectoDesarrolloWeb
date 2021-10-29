@@ -18,6 +18,9 @@ class InicioView(TemplateView):
 class DocsView(TemplateView):
     template_name = 'documentos.html'
 
+class admDocsView(TemplateView):
+    template_name = 'documentosadm.html'    
+
 class FormsoView(CreateView):
     model = FormularioInscripcion
     form_class = FormIncripcion
@@ -100,7 +103,7 @@ class ListContablesadm(ListView):
         return DocContables.objects.all()
 
 class ListCuestionarioadm(ListView):
-    template_name = "Listauestionarioadm.html"
+    template_name = "Listacuestionarioadm.html"
     model = Cuestionarios
 
     def get_queryset(self):
@@ -147,6 +150,31 @@ class MeetViewadm(ListView):
 
     def get_queryset(self):
         return Reuniones.objects.all()
+
+class crearmeet(CreateView):
+    template_name = 'crearmeet.html'
+    form_class = reuform
+    success_url = reverse_lazy('reuadm')
+
+class creareditable(CreateView):
+    template_name = 'creareditable.html'
+    form_class = FormEditables
+    success_url = reverse_lazy('adminEditables')
+
+class crearejecutivo(CreateView):
+    template_name = 'crearejecutivo.html'
+    form_class = dejeform
+    success_url = reverse_lazy('adminEje')
+
+class crearcontable(CreateView):
+    template_name = 'crearcontable.html'
+    form_class = dcform
+    success_url = reverse_lazy('adminContable')
+
+class crearcuestionario(CreateView):
+    template_name = 'crearcuestionario.html'
+    form_class = cuestform
+    success_url = reverse_lazy('adminCuestionario')    
 
 class editreu(UpdateView):
     model = Reuniones
