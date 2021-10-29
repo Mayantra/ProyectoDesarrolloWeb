@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Asistencia, Cuestionarios, Departamento, DocContables, DocsEditables, DocumentosEje, FormularioInscripcion,  Profesion, Reuniones, Usuario, UsuarioAdmin
+from .models import Asistencia, Cuestionarios, Departamento,Usuario, DocContables, DocsEditables, DocumentosEje, FormularioInscripcion,  Profesion, Reuniones, UsuarioAdmin
 # Register your models here.
 admin.site.register(Departamento)
 

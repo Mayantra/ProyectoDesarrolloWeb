@@ -1,10 +1,11 @@
+
 from django.db.models.base import Model
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import TemplateView, CreateView, ListView
 from django.urls import reverse_lazy
 from django.views.generic.edit import UpdateView
-from .forms import FormAdmin, FormEditables, FormIncripcion, FormUser, dcform, dejeform,cuestform,reuform
-from .models import Cuestionarios, DocContables, DocsEditables, DocumentosEje, FormularioInscripcion, Usuario, UsuarioAdmin,Reuniones
+from .forms import FormAdmin, FormEditables, FormIncripcion, dcform, dejeform,cuestform,reuform,FormUser
+from .models import Cuestionarios, DocContables, DocsEditables, DocumentosEje, FormularioInscripcion, UsuarioAdmin,Reuniones,Usuario
 from django.contrib.auth.views import LoginView
 
 # Create your views here.
@@ -50,8 +51,6 @@ class RegistroUserView(CreateView):
     success_url = reverse_lazy('home')
 
 class LoginView(LoginView):
-    model = Usuario
-    form_class = FormUser
     template_name = 'Login.html'
 
 class ListarEditables(ListView):
@@ -157,3 +156,4 @@ class editreu(UpdateView):
     template_name = "reuedit.html"
     form_class = reuform
     success_url = reverse_lazy('reuadm')
+

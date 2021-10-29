@@ -1,4 +1,7 @@
 from django.db import models
+from django.contrib.auth.models import User
+from django.dispatch import receiver
+from django.db.models.signals import post_save
 
 
 # Create your models here.
@@ -11,17 +14,19 @@ class Departamento(models.Model):
 
 
 class Usuario(models.Model):
-    nombre=models.CharField(max_length=50)
-    apellido=models.CharField(max_length=50) 
-    email=models.EmailField(max_length = 254)
-    contraseñau=models.CharField(max_length=50)
-    creacion=models.DateField(auto_now_add=True)
-    actualizacion=models.DateField(auto_now_add=True)
+    perfil = models.OneToOneField(User, on_delete=models.CASCADE)
 
+    def str(self):
+        return self.perfil.username
 
-    def __str__(self):
-        return '%s' % (self.email)
+@receiver(post_save, sender=User)
+def crear_usuario(sender, instance, created, **kwargs):
+    if created:
+        Usuario.objects.create(perfil=instance)
 
+@receiver(post_save, sender=User)
+def guardar_usuario(sender, instance, created, **kwargs):
+    instance.usuario.save()
 
     
 

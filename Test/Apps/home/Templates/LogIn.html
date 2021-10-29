@@ -1,4 +1,5 @@
 {% extends 'index.html' %}
+{% load static %}
 
 {% block titulo%} <title>LOGIN</title>{% endblock %}
 
@@ -10,18 +11,17 @@
 
 {% block contenido %}
 
-<div class="Ingreso">
-   <h2 class="text-center">__________________________________</h2>
-   <h2 class="text-center">Bienvenido de nuevo</h2>
-   <div class="ContLog"> 
-
-<form method="POST">
-   {% csrf_token %}
+<div class ="ContGlobal">
+   <form action= "" method="POST">
+   {% csrf_token%}
    {{ form.as_p }}
    <input type="submit" name="submit">
-</form> -->
+</form>
+</div>
 
 
+
+<!-- 
 <form>
          <div class="form-group">
             <label >
@@ -33,15 +33,15 @@
             <label>
                <h2>Contraseña</h2>
             </label>
-            <input class="form-control" type="password" name="contraseñau"
+            <input class="form-control" type="password" name="contraseña"
                >
          </div>
          <button type="submit">Ingresar</button>
          <br>
          <a href="#">Contraseña olvidada</a><a href= "{% url 'registrar'%}">   /Registrate</a>
-      </form>
-   </div>
-</div>
+      </form> -->
+   <!-- </div>
+</div> -->
 
 
 
