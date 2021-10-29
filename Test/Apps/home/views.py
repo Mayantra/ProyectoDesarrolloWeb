@@ -1,13 +1,12 @@
 
 from django.db.models.base import Model
 from django.shortcuts import render, redirect, get_object_or_404
-from django.views.generic import TemplateView, CreateView, ListView
+from django.views.generic import TemplateView, CreateView, ListView, UpdateView
 from django.urls import reverse_lazy
-from django.views.generic.edit import UpdateView
 from .forms import FormAdmin, FormEditables, FormIncripcion, dcform, dejeform,cuestform,reuform,FormUser
 from .models import Cuestionarios, DocContables, DocsEditables, DocumentosEje, FormularioInscripcion, UsuarioAdmin,Reuniones,Usuario
 from django.contrib.auth.views import LoginView
-
+from django.forms import forms
 # Create your views here.
 
 class HomeView(TemplateView):
@@ -32,8 +31,8 @@ class MeetView(ListView):
     def get_queryset(self):
         return Reuniones.objects.all()
 
-class LoginView(TemplateView):
-    template_name = 'LogIn.html'
+class LoginView(LoginView):
+    template_name = 'Login.html'
 
 class RegistroView(TemplateView):
     template_name = 'registrar.html'
@@ -50,8 +49,6 @@ class RegistroUserView(CreateView):
     template_name = 'registrarUsuario.html'
     success_url = reverse_lazy('home')
 
-class LoginView(LoginView):
-    template_name = 'Login.html'
 
 class ListarEditables(ListView):
     template_name = "ListarEditables.html"

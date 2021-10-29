@@ -13,7 +13,7 @@
 
         <div class="ParrafoContRegistrarU">
 
-            <form method="POST">
+            <!-- <form method="POST">
                 {% csrf_token %}
                 {% if error%}
                 <h2>{{error}}</h2>
@@ -42,8 +42,13 @@
             <button  type="submit" name="registrar">Registrar</button>
             </form>
             {% endif %}
-            </form>
+            </form> -->
 
+            <form class="form-group"action= "" method="POST">
+                {% csrf_token%}
+                {{ form.as_p }}
+                <button class="form-control form-group"type="submit" name="Guardar">Guardar</button>
+             </form>
             <div >
         </div>
     </div>

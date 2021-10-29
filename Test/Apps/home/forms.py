@@ -1,6 +1,7 @@
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
+from django.forms import widgets
 from .models import DocsEditables, FormularioInscripcion,  UsuarioAdmin, DocContables, DocumentosEje,Cuestionarios,Reuniones
 
 
@@ -53,28 +54,36 @@ class FormIncripcion(forms.ModelForm):
 
 
 class FormUser(UserCreationForm):
-    first_name = forms.CharField(max_length=140, required=True)
-    last_name = forms.CharField(max_length=140, required=False)
-    email = forms.EmailField(required=True)
+    first_name = forms.CharField(max_length=140, required=True, widget=forms.TextInput(attrs={
+        "class":"input form-control","type":"first_name","placeholder":"Ingrese su nombre"
+    }))
+    last_name = forms.CharField(max_length=140, required=False, widget=forms.TextInput(attrs={
+        "class":"input form-control","type":"last_name","placeholder":"ingrese su apellido"
+    }))
+    # email = forms.EmailField(required=True, widget=forms.TextInput(attrs={
+    #     "class":"input form-control","type":"email","placeholder":"Ingrese su correo"
+    # }))
     class Meta:
         model = User
         fields=(
             'username',
-            'email',
+            # 'email',
             'first_name',
             'last_name',
             'password1',
             'password2',
         )
         labels ={
-            'username':'correo',
-            'email':'correo2',
+            'username':'Correo',
+            # 'email':'correo2',
             'first_name':'Nombre',
             'last_name':'apellido',
             'password1':'Contraseña',
             'password2':'Validar Contraseña',
+
             
         }
+     
 
 class FormAdmin(forms.ModelForm):
     class Meta:

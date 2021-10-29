@@ -126,7 +126,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-# LOGIN_REDIRECT_URL = reverse_lazy('home')
+
+LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = 'home'
 
 # STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static_cdn")
 
