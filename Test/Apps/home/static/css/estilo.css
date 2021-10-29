@@ -23,8 +23,10 @@ body{
     padding: 2px;  
 }
 .ContMenu{
-    margin-top: 10px;
-    float: right;
+    margin-top: 10px;    
+    float: inline-end;
+
+    
 }
 .logo{
 
@@ -41,13 +43,15 @@ body{
 }
 
 .BtMenu{
+    
     text-align: center;
     color:white;
-    padding: 10px 40px 10px 40px;
-    margin: 10px;
+    padding: 2px 25px 2px 25px;
+    margin: 5px;
     border: solid 2px;
     border-radius: 30px;
     border-color: #5C848E;
+    
 
 }
 .BtMenu a:hover, a:visited, a:active{
@@ -149,10 +153,10 @@ body{
 
 }
 .ImagenH{
-    text-align: right;
+    text-align:end;
     position:absolute;
     padding: 10px;
-    margin-left: 10%;
+    margin-left: 50%;
     
     
 }
@@ -161,7 +165,7 @@ body{
     border-radius: 25px;
     padding: 1%;
     background-color: #5C848E;
-    width: 40%
+    width: 75%;
 
 }
 .ResponI2
