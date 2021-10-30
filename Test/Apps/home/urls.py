@@ -1,7 +1,7 @@
-from django.conf import settings
+
 from django.contrib import admin
 from django.urls import path
-from .views import HomeView,InicioView,DocsView,FormsoView, ListarContables, ListarCuestionario, ListarEditables, ListarEje, LoginView,MeetView, RegistroAdminView, RegistroUserView, RegistroView, modificar_producto,editarcontables,editarejec,editcu,editreu,ListEditablesadm,ListEjeadm,ListContablesadm,ListCuestionarioadm,MeetViewadm,admDocsView,crearmeet,creareditable,crearejecutivo,crearcontable,crearcuestionario
+from .views import HomeView,InicioView,DocsView,FormsoView, ListarContables, ListarCuestionario, ListarEditables, ListarEje, LoginView,MeetView, RegistroAdminView, RegistroUserView, RegistroVer, RegistroView, modificar_producto,editarcontables,editarejec,editcu,editreu,ListEditablesadm,ListEjeadm,ListContablesadm,ListCuestionarioadm,MeetViewadm,admDocsView,crearmeet,creareditable,crearejecutivo,crearcontable,crearcuestionario
 # app_name = 'app1' Esto va a servir para poder indicar y direccionar los archivos solo del al App Home 
 # (ustedes deciden si la van a usar o no) :) :) :) ;) ;) ;)
 
@@ -41,5 +41,7 @@ urlpatterns = [
     path('dejedit/<pk>/', editarejec.as_view(), name='dejedit'),
     path('cuedit/<pk>/', editcu.as_view(), name='cuedit'),
     path('reuedit/<pk>/', editreu.as_view(), name='reuedit'),
+    
+    path('registrover/<pk>/', RegistroVer.as_view(), name='registrover'),
     
 ]

@@ -2,13 +2,9 @@
 {% block titulo%} <title>Crear Cuestionarios</title>{% endblock %}
 {% block contenido%}
 <section class="from-register">
-    <form method="POST">
-        {% csrf_token %}
-        {% if error%}
-        <h2>{{error}}</h2>
-        {% else %}
+  
         <form action="#" method="POST" enctype="multipart/form-data">
-
+            {% csrf_token %}
             <h4 class="titulos">Crear Cuestionarios </h4>
             Contenido
             <p class="form-control-lg">{{form.Contenido}}</p>
@@ -20,8 +16,7 @@
             <div class="form-control-lg">{{form.Descripcion}} </div>
             <button type="submit" >Guardar</button>
         </form>
-        {% endif %}
-    </form>
+     
 </section>
 
 {% endblock %}

@@ -95,35 +95,28 @@
 
 {% block contenido%}
 <div class="ContGlobal">
-<center><h1>DOCUMENTOS EJECUTIVOS</h1></center> 
-<table border="" class="table table-dark table-striped">
-	<thead>
-	<tr>
-		
-		<th scope = 'col'>Tipo</th>
-		<th scope = 'col'>Descripcion</th>	
-		<th scope = 'col'>Contenido</th>
-		<th scope = 'col'>Ver</th>
-	  
-	   
-	</tr>
-	</thead>
-	
-	{% for est in object_list %} <!-- est nombre de la variable -->
-	<tbody>
-	<tr>
-	   
-		<td>{{ est.Tipo }}</td>
-		<td>{{ est.Descripcion }}</td>
-		<td>{{ est.Contenido }}</td>
-		<td><a href="{% url 'registrover' est.id %}" class="btn btn-dark btn-sm">Ver</a></td>
-	
-	
-	</tr>
-	</tbody>
-	{% endfor %}
+    <table  class="table table-dark table-striped">
+        
+        <tr>
+            
+            <th >Tipo</th>
+            <th >Descripcion</th>	
+            <th >Contenido</th>
+          
+           
+        </tr>    
 
-</table>
+        <tr>
+           
+            <td>{{est.Tipo}}</td>
+            <td>{{est.Descripcion}}</td>
+            <td><img src="{{est.Contenido.url}}" width="100%"></td> 
+
+        
+        </tr>
+       
+    
+    </table>
 
 </div>
 {% endblock %}

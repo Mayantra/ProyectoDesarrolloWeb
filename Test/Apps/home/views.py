@@ -1,13 +1,17 @@
 
 from django.db.models.base import Model
 from django.shortcuts import render, redirect, get_object_or_404
-from django.views.generic import TemplateView, CreateView, ListView, UpdateView
+from django.views.generic import TemplateView, CreateView, ListView, UpdateView,DetailView
 from django.urls import reverse_lazy
 from .forms import FormAdmin, FormEditables, FormIncripcion, dcform, dejeform,cuestform,reuform,FormUser
 from .models import Cuestionarios, DocContables, DocsEditables, DocumentosEje, FormularioInscripcion, UsuarioAdmin,Reuniones,Usuario
 from django.contrib.auth.views import LoginView
 from django.forms import forms
 # Create your views here.
+
+class RegistroVer(DetailView):
+    model =DocumentosEje
+    template_name ="verRegistro.html"
 
 class HomeView(TemplateView):
     template_name = 'index.html'
@@ -181,4 +185,5 @@ class editreu(UpdateView):
     template_name = "reuedit.html"
     form_class = reuform
     success_url = reverse_lazy('reuadm')
+
 

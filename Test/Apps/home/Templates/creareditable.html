@@ -3,15 +3,14 @@
 
 {% block contenido %}
 <center>
-<form method="POST">
-    {% csrf_token %} 
+
     
     
-    {% if error %}
-    <h2>{{error}}</h2>
-    {% else %}
+    
 
     <form action="#" method="POST" enctype="multipart/form-data" >
+        {% csrf_token %} 
+    
     <div>
         <h2><div>{{form.Tipo.label}}</div></h2>
         <h5><div>{{form.Tipo}}</div></h5>
@@ -34,8 +33,6 @@
 
     <button type = "submit" name="Enviar"class="btn btn-info">Enviar</button>
     </form>
-    {% endif %}
-    
-</form>
+ 
 </center>
 {% endblock %}
