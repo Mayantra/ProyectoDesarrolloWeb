@@ -93,37 +93,9 @@
 		</div>
 {% endblock %}
 
-{% block contenido%} 
-<center><h1>DOCUMENTOS CONTABLES</h1></center> 
-<table border="" class="table table-dark table-striped">
-	<thead>
-	<tr>
-		
-		<th scope = 'col'>Tipo</th>
-		<th scope = 'col'>Descripcion</th>
-		<th scope = 'col'>Guia</th>
-		<th scope = 'col'>Contenido</th>
-		<!-- <th scope = 'col'>Editar</th> -->
-		<td><a href="{% url 'crcon'  %}"class="btn btn-dark btn-sm">Nuevo Documento</a></td>
-		
-	</tr>
-	</thead>
-	
-	{% for est in object_list %} <!-- est nombre de la variable -->
-	<tbody>
-	<tr>
-	   
-		<td>{{ est.Tipo }}</td>
-		<td>{{ est.Descripcion }}</td>
-		<td>{{ est.Guia }}</td>
-		<td>{{ est.Contenido }}</td>
-		<td><a href="{% url 'dcedit' est.id %}"class="btn btn-dark btn-sm">editar</a></td>
-	
-	</tr>
-	</tbody>
-	{% endfor %}
+{% block contenido%}
 
-</table>
+<div class="ContGlobal" >
 
-
+</div>
 {% endblock %}

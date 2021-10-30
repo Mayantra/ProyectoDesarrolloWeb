@@ -93,19 +93,20 @@
 		</div>
 {% endblock %}
 
-{% block contenido%} 
-<center><h1>DOCUMENTOS CONTABLES</h1></center> 
+{% block contenido%}
+
+<center><h1>CUESTIONARIOS</h1></center> 
 <table border="" class="table table-dark table-striped">
 	<thead>
 	<tr>
 		
 		<th scope = 'col'>Tipo</th>
 		<th scope = 'col'>Descripcion</th>
-		<th scope = 'col'>Guia</th>
+	
 		<th scope = 'col'>Contenido</th>
 		<!-- <th scope = 'col'>Editar</th> -->
-		<td><a href="{% url 'crcon'  %}"class="btn btn-dark btn-sm">Nuevo Documento</a></td>
-		
+		<td><a href="{% url 'crcuest'  %}"class="btn btn-dark btn-sm">Nuevo Documento</a></td>
+		   
 	</tr>
 	</thead>
 	
@@ -115,15 +116,14 @@
 	   
 		<td>{{ est.Tipo }}</td>
 		<td>{{ est.Descripcion }}</td>
-		<td>{{ est.Guia }}</td>
 		<td>{{ est.Contenido }}</td>
-		<td><a href="{% url 'dcedit' est.id %}"class="btn btn-dark btn-sm">editar</a></td>
+		<td><a href="{% url 'cuedit' est.id %}"class="btn btn-dark btn-sm">editar</a></td>
+	
 	
 	</tr>
 	</tbody>
 	{% endfor %}
 
 </table>
-
 
 {% endblock %}

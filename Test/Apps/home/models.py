@@ -3,7 +3,6 @@ from django.contrib.auth.models import User
 from django.dispatch import receiver
 from django.db.models.signals import post_save
 
-
 # Create your models here.
 class Departamento(models.Model):
     nombre = models.CharField(max_length=50)
@@ -92,8 +91,8 @@ class UsuarioAdmin(models.Model):
 class Reuniones(models.Model):
     motivo=models.CharField(max_length=500)
     tipo=models.CharField(max_length=50)
-    horaRegisto=models.DateTimeField()
-    horaReunion=models.DateTimeField()
+    horaRegisto=models.DateField()
+    horaReunion=models.DateField()
     link=models.CharField(max_length=150)
     IDUsuarioAdmin=models.ForeignKey(
         'UsuarioAdmin',
@@ -133,7 +132,7 @@ class DocsEditables(models.Model):
 
 
 class DocumentosEje(models.Model):
-    Contenido=models.FileField(upload_to = "Uploaded Files/")
+    Contenido=models.FileField(upload_to = "Uploaded Files/",blank=False,default=0)
     Tipo= models.CharField(max_length=50)
     Descripcion=models.CharField(max_length=500)
 
