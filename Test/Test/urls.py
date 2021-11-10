@@ -21,7 +21,7 @@ Including another URLconf
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('home/', include('Apps.home.urls'))
+    path('home/', include('apps.home.urls'))
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
