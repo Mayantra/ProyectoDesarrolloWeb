@@ -39,7 +39,7 @@ class MeetView(ListView):
         return Reuniones.objects.all()
 
 class LoginView(LoginView):
-    template_name = 'Login.html'
+    template_name = 'login.html'
 
 class RegistroView(TemplateView):
     template_name = 'registrar.html'
